@@ -1,6 +1,8 @@
 import PerfMeter from './components/PerfMeter'
 import { useQuality } from './hooks/useQuality'
 import ButtonsSection from './sections/ButtonsSection'
+import MaterialsSection from './sections/MaterialsSection'
+import LightingSection from './sections/LightingSection'
 
 const nav = [
   ['buttons', 'כפתורים'],
@@ -45,6 +47,8 @@ export default function App() {
         </section>
 
         <ButtonsSection />
+        <MaterialsSection />
+        <LightingSection />
       </main>
 
       <footer className="border-t border-zinc-800 py-8 text-center text-xs text-zinc-500">
