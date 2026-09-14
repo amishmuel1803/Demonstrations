@@ -2,8 +2,9 @@
 
 תאריך: 2026-09-14 · ריפו: `amishmuel1803/Demonstrations` · ענף: `claude/stoic-thompson-2ncjsv`
 
-**קישור ייצור (Vercel):** https://demonstrations-amiko1803.vercel.app
-(הבנייה ב-Vercel מושכת את הקוד מ-GitHub בזמן הבנייה — ראו הגדרות הפרויקט ב-Vercel. כדי לעדכן: דחיפה ל-GitHub ואז Redeploy ב-Vercel, או התקנת ה-Vercel GitHub App לעדכון אוטומטי.)
+**קישור ייצור (Vercel, מחובר ל-GitHub — מתעדכן אוטומטית בכל דחיפה):** https://demonstrations-3d-amiko1803.vercel.app
+
+(פרויקט Vercel: `demonstrations-3d`. יש גם פרויקט ישן בשם `demonstrations` מהעלאה ידנית — https://demonstrations-amiko1803.vercel.app — הוא לא מתעדכן לבד ואפשר למחוק אותו בלוח הבקרה של Vercel.)
 
 ## מה נבנה
 
