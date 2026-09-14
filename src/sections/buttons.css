@@ -1,0 +1,71 @@
+/* ===== כפתור "מילוי נוזלי" — CSS בלבד ===== */
+.btn-liquid {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-liquid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #06b6d4;
+  /* "גל" למעלה: מסיכה רדיאלית שחוזרת על עצמה */
+  -webkit-mask: radial-gradient(18px at 50% 0, #0000 98%, #000) 50% 0 / 36px 100% repeat-x;
+  mask: radial-gradient(18px at 50% 0, #0000 98%, #000) 50% 0 / 36px 100% repeat-x;
+  transform: translateY(101%);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-liquid:hover::before { transform: translateY(0); }
+.btn-liquid:hover { color: #09090b; }
+
+/* ===== גלים בלחיצה — JS יוצר span, CSS מנפיש אותו ===== */
+.btn-ripple { position: relative; overflow: hidden; }
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 0.65s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes ripple {
+  to { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+}
+
+/* ===== זכוכית — CSS בלבד (backdrop-filter) ===== */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 8px 30px rgba(0,0,0,0.35);
+  transition: background 0.3s, transform 0.3s;
+}
+.btn-glass:hover { background: rgba(255, 255, 255, 0.18); transform: translateY(-2px); }
+
+/* ===== ברק חולף — CSS בלבד ===== */
+.btn-shine { position: relative; overflow: hidden; }
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 40%;
+  left: -60%;
+  background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+.btn-shine:hover::after { left: 130%; }
+
+/* רקע צבעוני מאחורי כפתור הזכוכית — כדי שיהיה מה לטשטש */
+.glass-bg {
+  background:
+    radial-gradient(circle at 20% 30%, #f472b6 0, transparent 40%),
+    radial-gradient(circle at 80% 70%, #22d3ee 0, transparent 40%),
+    radial-gradient(circle at 60% 20%, #facc15 0, transparent 35%),
+    #18181b;
+}
+.glass-bg .blob { position: absolute; border-radius: 9999px; filter: blur(2px); }
+.motion-auto.blob { animation: drift 6s ease-in-out infinite alternate; }
+@keyframes drift { to { transform: translate(30px, -20px) scale(1.2); } }

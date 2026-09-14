@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Heebo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-zinc-950 text-zinc-100 font-sans;
+  overflow-x: hidden;
+}
+
+/* מתג "פחות תנועה" במערכת ההפעלה: מבטלים אנימציות CSS אוטומטיות (לא אינטראקטיביות) */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .motion-auto { animation: none !important; }
+}
+
+/* סליידר בסיסי מעוצב */
+input[type="range"] {
+  @apply w-full h-2 rounded-full bg-zinc-700 appearance-none cursor-pointer;
+  accent-color: #22d3ee;
+}
+input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-4 h-4 rounded-full bg-cyan-400 border-2 border-zinc-900;
+}
+input[type="range"]::-moz-range-thumb {
+  @apply w-4 h-4 rounded-full bg-cyan-400 border-2 border-zinc-900;
+}
+
+canvas { display: block; touch-action: none; }
