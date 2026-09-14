@@ -24,7 +24,7 @@ function PerfReporter({ id }) {
  * frameloop="never" = לא מציירים בכלל; "always" = מציירים כל פריים.
  * ככה 9 הדגמות בדף לא מתחרות זו בזו על המעבד הגרפי.
  */
-export default function LazyCanvas({ children, className = '', style, alwaysOn = false, ...props }) {
+export default function LazyCanvas({ children, className = '', style, alwaysOn = false, shadows, ...props }) {
   const [ref, inView] = useInView()
   const { tier } = useQuality()
   const id = useId()
@@ -35,6 +35,8 @@ export default function LazyCanvas({ children, className = '', style, alwaysOn =
         dpr={tier.dpr}
         frameloop={active ? 'always' : 'never'}
         gl={{ antialias: true, powerPreference: 'high-performance' }}
+        // shadows={true} של R3F מבקש PCFSoft שהוסר ב-three r186 — לכן ממפים ל-"percentage" (PCF רגיל)
+        shadows={shadows === true ? 'percentage' : shadows}
         {...props}
       >
         {active && <PerfReporter id={id} />}

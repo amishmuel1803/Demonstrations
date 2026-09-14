@@ -3,6 +3,12 @@ import { useQuality } from './hooks/useQuality'
 import ButtonsSection from './sections/ButtonsSection'
 import MaterialsSection from './sections/MaterialsSection'
 import LightingSection from './sections/LightingSection'
+import PhysicsSection from './sections/PhysicsSection'
+import GameSection from './sections/GameSection'
+import TexturesSection from './sections/TexturesSection'
+import SoftSection from './sections/SoftSection'
+import ParticlesSection from './sections/ParticlesSection'
+import ScrollSection from './sections/ScrollSection'
 
 const nav = [
   ['buttons', 'כפתורים'],
@@ -49,6 +55,12 @@ export default function App() {
         <ButtonsSection />
         <MaterialsSection />
         <LightingSection />
+        <PhysicsSection />
+        <GameSection />
+        <TexturesSection />
+        <SoftSection />
+        <ParticlesSection />
+        <ScrollSection />
       </main>
 
       <footer className="border-t border-zinc-800 py-8 text-center text-xs text-zinc-500">

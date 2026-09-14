@@ -5,6 +5,7 @@ import LazyCanvas from '../components/LazyCanvas'
 import Slider from '../components/ui/Slider'
 import Btn from '../components/ui/Btn'
 import ProceduralEnvironment from '../three/environments'
+import { useQuality } from '../hooks/useQuality'
 import { materials as cfg } from '../config'
 
 /**
@@ -46,6 +47,7 @@ function Ball({ p, x, selected, onClick, labelY = -1.35 }) {
 }
 
 export default function MaterialsSection() {
+  const { isMobile } = useQuality()
   const [items, setItems] = useState(cfg.presets)
   const [sel, setSel] = useState(3)
   const p = items[sel]
@@ -67,7 +69,7 @@ export default function MaterialsSection() {
       <DemoLayout
         demoClass="h-[380px] md:h-[460px]"
         demo={
-          <LazyCanvas className="h-full" camera={{ position: [0, 2, 13.5], fov: 45 }} shadows>
+          <LazyCanvas className="h-full" camera={{ position: [0, 2, isMobile ? 24 : 13.5], fov: 45 }} shadows>
             <color attach="background" args={['#111114']} />
             <ProceduralEnvironment name="studio" />
             <group position={[-((n - 1) * spacing) / 2, 0.3, 0]}>
@@ -76,7 +78,7 @@ export default function MaterialsSection() {
               ))}
             </group>
             <ContactShadows position={[0, -0.75, 0]} opacity={0.6} scale={25} blur={2.2} far={3} />
-            <OrbitControls enablePan={false} minDistance={4} maxDistance={20} target={[0, 0.3, 0]} />
+            <OrbitControls enablePan={false} minDistance={4} maxDistance={30} target={[0, 0.3, 0]} />
           </LazyCanvas>
         }
         controls={
