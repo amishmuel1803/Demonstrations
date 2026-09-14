@@ -1,6 +1,7 @@
 import PerfMeter from './components/PerfMeter'
 import { useQuality } from './hooks/useQuality'
 import ButtonsSection from './sections/ButtonsSection'
+import MoreButtonsSection from './sections/MoreButtonsSection'
 import MaterialsSection from './sections/MaterialsSection'
 import LightingSection from './sections/LightingSection'
 import PhysicsSection from './sections/PhysicsSection'
@@ -12,6 +13,7 @@ import ScrollSection from './sections/ScrollSection'
 
 const nav = [
   ['buttons', 'כפתורים'],
+  ['buttons2', 'עוד כפתורים'],
   ['materials', 'חומרים'],
   ['lighting', 'תאורה'],
   ['physics', 'פיזיקה'],
@@ -53,6 +55,7 @@ export default function App() {
         </section>
 
         <ButtonsSection />
+        <MoreButtonsSection />
         <MaterialsSection />
         <LightingSection />
         <PhysicsSection />

@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react'
 import { RoundedBox } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import Section from '../components/ui/Section'
+import Card from '../components/ui/EffectCard'
 import LazyCanvas from '../components/LazyCanvas'
 import { useQuality } from '../hooks/useQuality'
 import { buttons as cfg } from '../config'
@@ -148,26 +149,6 @@ function Elastic({ reduced }) {
     <button ref={btn} onPointerDown={down} onPointerUp={up} onPointerLeave={up} className={`${base} bg-rose-500 text-white`}>
       לחץ והחזק
     </button>
-  )
-}
-
-const toolColor = {
-  'CSS בלבד': 'text-emerald-300 border-emerald-500/40',
-  'GSAP': 'text-amber-300 border-amber-500/40',
-  'JS + CSS': 'text-sky-300 border-sky-500/40',
-  'תלת-מימד (R3F)': 'text-fuchsia-300 border-fuchsia-500/40',
-}
-
-function Card({ name, tool, note, children }) {
-  return (
-    <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 flex flex-col items-center gap-3 min-h-52">
-      <div className="flex-1 flex items-center justify-center w-full">{children}</div>
-      <div className="text-center">
-        <div className="font-semibold">{name}</div>
-        <div className={`inline-block mt-1 text-[11px] px-2 py-0.5 rounded-full border ${toolColor[tool]}`}>{tool}</div>
-        {note && <div className="text-[11px] text-zinc-400 mt-1">{note}</div>}
-      </div>
-    </div>
   )
 }
 
